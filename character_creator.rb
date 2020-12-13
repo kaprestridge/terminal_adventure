@@ -1,5 +1,5 @@
 class Hero
-    attr_reader :str, :dex, :con, :int, :wis, :cha
+    attr_accessor :str, :dex, :con, :int, :wis, :cha
     def initialize(name)
         @name = name
         @str = 10
@@ -29,18 +29,47 @@ class Hero
     end
 end
 
-puts "What is your name?"
-hero_name = gets.chomp.to_s
-hero = Hero.new
 
-class Hero_Questions (hero)
+puts "What is your name?"
+hero_name = gets.chomp.to_s.capitalize
+hero = Hero.new(hero_name)
+
+
+class Hero_Questions (Hero)
     def initialize (question_text, answer_options)
         @question_text = question_text
-        @answer_options = answer_options [0..]
+        @answer_options = answer_options[0..]
+    end
+    def to_s
+        @question_text
     end
 end
 
-question1 = Hero_questions.new (
+question1 = Hero_Questions.new(
     "What is your favorite colour?",
-    {"blue" => Hero.change_str(1), "red" => Hero.change_cha(2), "green" => Hero.change_con(2)},
+    answer_options1 = {"blue" => hero.change_str(1), "green" => hero.change_con(1)}
 )
+
+
+
+puts hero_name
+puts hero.str
+puts hero.dex
+puts hero.con
+puts hero.int
+puts hero.wis
+puts hero.cha
+
+puts question1
+
+
+
+
+
+
+puts hero.str
+puts hero.dex
+puts hero.con
+puts hero.int
+puts hero.wis
+puts hero.cha

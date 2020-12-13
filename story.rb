@@ -48,7 +48,7 @@ page2 = Page.new(
 page1 = Page.new(
     "This is where the story goes, story is here this is a big block of text.
     Where would you like to go? 1 or 2?",
-    [(2 > 15 ? (page2) : (nil)), page3],
+    [(20 > 15 ? (page2) : (nil)), page3],
     ["Use strength", "walk away"],
     :page1
 )

@@ -1,8 +1,9 @@
-require "tty-prompt"
+# require "tty-prompt"
+# prompt = TTY::Prompt.new
 require "colorize"
 require "json"
 require_relative "hero.rb"
-prompt = TTY::Prompt.new
+
 
 # def welcome_screen (prompt)
     system ('clear')
