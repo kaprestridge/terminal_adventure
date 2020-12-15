@@ -1,5 +1,4 @@
-require 'tty-prompt'
-prompt = TTY::Prompt.new
+
 
 class Hero
     attr_accessor :str, :dex, :con, :int, :wis, :cha
@@ -33,9 +32,9 @@ class Hero
 end
 
 
-puts "What is your name?"
-hero_name = gets.chomp.to_s.capitalize
-hero = Hero.new(hero_name)
+# puts "What is your name?"
+# hero_name = gets.chomp.to_s.capitalize
+# hero = Hero.new(hero_name)
 
 
 class Hero_Questions (Hero)
@@ -49,17 +48,16 @@ class Hero_Questions (Hero)
     end
 end
 
-{"blue" => proc { hero.change_str(1) } }
 
 
 
-puts hero_name
-puts hero.str
-puts hero.dex
-puts hero.con
-puts hero.int
-puts hero.wis
-puts hero.cha
+# puts hero_name
+# puts hero.str
+# puts hero.dex
+# puts hero.con
+# puts hero.int
+# puts hero.wis
+# puts hero.cha
 
 question_list = [
 question1 = Hero_Questions.new(
@@ -81,16 +79,15 @@ last_question = Hero_Questions.new(
 ]
 
 
-question_list.each { |q, a| 
-puts q
-menu_options = answer_options.map{|option, index| {name: option, value: index} }
-hero_answer = prompt.select('Your answer:', menu_options)
-}
+# question_list.each { |q, a| 
+# puts q
+# menu_options = answer_options.map{|option, index| {name: option, value: index} }
+# hero_answer = prompt.select('Your answer:', menu_options)
+# }
 
-
-puts hero.str
-puts hero.dex
-puts hero.con
-puts hero.int
-puts hero.wis
-puts hero.cha
+# puts hero.str
+# puts hero.dex
+# puts hero.con
+# puts hero.int
+# puts hero.wis
+# puts hero.cha

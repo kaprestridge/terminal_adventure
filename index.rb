@@ -1,11 +1,11 @@
-# require "tty-prompt"
-# prompt = TTY::Prompt.new
+require "tty-prompt"
+prompt = TTY::Prompt.new
 require "colorize"
 require "json"
-require_relative "hero.rb"
+require_relative "character_creator.rb"
 
 
-# def welcome_screen (prompt)
+def welcome_screen (prompt)
     system ('clear')
     puts'
      _______  _______  _______     _______. _______    ____    __    ____  ___      .______      
@@ -29,41 +29,55 @@ require_relative "hero.rb"
         ]
         chosen_option = prompt.select("What would you like to do?", menu_options)
 
-
+if chosen_option == 1
+p
+elsif chosen_option == 2
+puts "There is no save file system yet sorry, press return to continue"
+gets
 welcome_screen(prompt)
-
-#Character creation
-#select method??
-#Give each item a value, return only truthy, .select, then alter these numbers when hero stats get higher.
-
-#story loop
-file = File.read('book.json')
-book = JSON.parse(file)
-current_page = book["page1"]
-puts current_page["story"]
-
-hero = Hero.new(name)
-
-i = 0
-if current_page["has_requirements"] != true
-    options = current_page["option_names"].each do |x|
-        {name: "#{x}", value: i}
-        i += 1
-    end
+elsif chosen_option == 3
+    system('clear')
+    puts "This is the help screen"
+    puts 'press return to go back to the main menu'
+    gets
+    welcome_screen(prompt)
+elsif chosen_option == 4
+    puts 'goodbye'
+    exit(0)
 else
-    requirements = current_page["requirements"]
-    if eval(requirements)
-        options = current_page["option_names"].each do |x|
-            {name: "#{x}", value: i}
-            i += 1
-        end
-    else
-        
-    end
+    welcome_screen(prompt)
+end
 
 end
 
+welcome_screen(prompt)
+puts "What is your name?"
+hero_name = gets.chomp.to_s.capitalize
+hero = Hero.new(hero_name)
+system('clear')
+puts "Welcome #{hero_name}"
 
+question_list = [
+    question1 = Hero_Questions.new(
+        "What is your favorite colour?",
+        answer_options = {"blue" => proc { hero.change_str(1)}, "pink" => proc { hero.change_dex(1)} }
+    ),
+    question2 = Hero_Questions.new(
+        "What is your favorite colour?2",
+        answer_options = {"blue" => proc { hero.change_str(1)}, "pink" => proc { hero.change_dex(1)} }
+    ),
+    question3 = Hero_Questions.new(
+        "What is your favorite colour?3",
+        answer_options = {"blue" => proc { hero.change_str(1)}, "pink" => proc { hero.change_dex(1)} }
+    ),
+    last_question = Hero_Questions.new(
+        "What is your favorite colour?4",
+        answer_options = {"blue" => proc { hero.change_str(1)}, "pink" => proc { hero.change_dex(1)} }
+    )
+    ]
 
-
-# prompt.select("Which page would you like to go to?", options)
+    question_list.each { |q, a| 
+        puts q
+        menu_options = answer_options.map{|option, index| {name: option, value: index} }
+        hero_answer = prompt.select('Your answer:', menu_options)
+        }
