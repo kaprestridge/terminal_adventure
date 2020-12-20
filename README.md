@@ -23,7 +23,6 @@ Note: Ensure that your features above allow you to demonstrate your understandin
 - error handling -->
 ## MVP Features
 - A character creator section, and option to skip
-- An inventory
 - Help menu
 - A branching story with at least 3 possible outcomes
 - Images
