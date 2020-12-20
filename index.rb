@@ -174,11 +174,193 @@ unravel the mystery and complete the game"
             [" "],
             :last_page
         )
-        pagea10 = Page.new(
+        last_page = Page.new(
             " ",
             [0],
             [" "],
             :last_page
+        )
+        pagea26 = Page.new(
+            "
+You jump into the rover without a care, I’m sure it will be fine. 
+You wade to around the halfway point, when the water becomes too 
+deep and you have to swim. You push yourself up… and are immediately 
+swept up and down river….",
+            [last_page],
+            ["Continue"],
+            :pagea26
+        )
+        pagea25 = Page.new(
+            "
+You grab a hold of the edge of the bridge, and use it to drag yourself 
+to the shore. You wring out your clothing the best you can, then begin 
+to trudge up the path to the tower.",
+            [last_page],
+            ["Continue"],
+            :pagea25
+        )
+        pagea24 = Page.new(
+            "
+You step carefully across the bridge, testing your weight 
+on each step as you continue across. When you are just a few 
+steps away, the bridge cracks and splinters beneath you, 
+pulling your feet out from under you and throwing you into the water.",
+            [(hero.dex > 11 ? (pagea25) : (nil)), last_page],
+            ["Grab hold of the bridge (Dexterity >11)", "Let go"],
+            :pagea24
+        )
+        pagea23 = Page.new(
+            "
+Deciding this is not the best place to cross you make your way upstream, 
+eventually coming across a bridge! It looks questionable at best, 
+but you figure it is better than swimming with no help.",
+            [pagea24],
+            ["Cross the bridge"],
+            :pagea23
+        )
+        pagea22 = Page.new(
+            "
+You jump back in the water, confident in your swimming ability. 
+The river is flowing quickly, but you manage to fight it’s current 
+and make it to the other side. You wring out your clothing the best 
+you can, then begin to trudge up the path to the tower.",
+            [last_page],
+            ["Continue"],
+            :pagea22
+        )
+        pagea21 = Page.new(
+            "
+You dive into the water, finally able to breath again after washing 
+the spores from your clothing. Well, you may be soaked, but you’re 
+alive and you found the river. You take a moment to wonder if the geese 
+were really worth it. Up ahead you see the top of a stone tower… At 
+least you’re on the right track, now just to get across this river.",
+            [(hero.str > 12 ? (pagea22) : (nil)), pagea23, pagea26],
+            ["Swim (strength >12)", "Go upriver", "Dive in!"],
+            :pagea21
+        )
+        pagea20 = Page.new(
+            "
+You have encountered this plant before, more than once. You 
+also know many adventurers have fallen to its poison. You wave 
+the spores away from your face and run. You can feel the edges 
+of your vision begin to fade, but you shake it off and continue on… 
+there it is, the river!",
+            [pagea21],
+            ["Continue"],
+            :pagea20
+        )
+        pagea19 = Page.new(
+            "
+You’ve seen that mushroom before, and you know what it’s 
+spores can do to a person. You hold your breath tightly and 
+hope that there is some water nearby. You run forward, almost 
+tripping over tree-roots and debris. You see the river ahead, 
+almost there!",
+            [pagea21],
+            ["Continue"],
+            :pagea19
+        )
+        pagea18 = Page.new(
+            "
+You look down at your boot, now covered in spores and sigh, that’s 
+going to take forever to clean. The spores continue to rise as you 
+take another step forward… That’s funny, they smell like… actual 
+mustard. You giggle, then feel your vision begin to fade….",
+            [last_page],
+            ["GAME OVER"],
+            :pagea18
+        )
+        pagea17 = Page.new(
+            "
+You take the path to the right and continue moving through the forest. 
+The trees become thicker as you travel further on, and the plantlife 
+more strange. You notice some large carnivorous flowers off to the side, 
+which you decide to give a wide berth. The path becomes less well-trodden 
+and more plant life seems to overtake it as you move forward. You step 
+over a rotting branch and… right into a giant mushroom! As you look 
+down you see mustard-yellow spores rising from where your foot is.",
+            [pagea18, (hero.int > 11 ? (pagea19) : (nil)), (hero.con > 11 ? (pagea20) : (nil))],
+            ["Ignore it and keep walking", "Hold your breath! (Intelligence >11)", "Wave the spores away (Constitution >11)"],
+            :pagea17
+        )
+        pagea16 = Page.new(
+            "
+You find yourself safe on the northern bank. You try to dry yourself 
+off as best as you can, but it looks like you’ll just be walking in 
+damp clothes from here on. You sigh, wondering if these geese are worth it. 
+Looking ahead and noticing the very tip of a grey stone tower in 
+the distance! At last!",
+            [last_page],
+            ["Continue towards the tower"],
+            :pagea16
+        )
+        pagea15 = Page.new(
+            "
+You decide to trust the bridge, it looks sturdy enough to you. 
+You walk carefully, testing each step before shifting your weight. 
+It seems to be holding. You get most of the way across, your 
+confidence growing, before your foot slips, throwing you into 
+the icy river.",
+            [last_page],
+            ["Continue"],
+            :pagea15
+        )
+        pagea14 = Page.new(
+            "
+Deciding the bridge looks too risky, you notice a nearby 
+tree that has been overtaken by vines, some hanging out over 
+the water. You find the longest one and tie it around your waist. 
+Feeling more secure you head back to the water's edge and 
+begin to cross the bridge. You get most of the way across before 
+your foot slips, throwing you into the icy river. Luckily 
+the rope holds fast and you are able to drag yourself to the river bank.",
+            [pagea16],
+            ["Continue"],
+            :pagea14
+        )
+        pagea13 = Page.new(
+            "
+You hold on as tightly as you can to try and regain your footing, 
+but the rock shudders under the force of the water and begins to 
+dislodge, throwing you into the cold water below.",
+            [last_page],
+            ["Continue"],
+            :pagea13
+        )
+        pagea12 = Page.new(
+            "
+You dart forward to the next rock and dive to the other bank, 
+looking back you watch as the rock you were standing on moments 
+ago dislodges and floats down the river….",
+            [pagea16],
+            ["Continue"],
+            :pagea12
+        )
+        pagea11 = Page.new(
+            "
+You decide you trust your feet more than that bridge and head 
+downstream to the rocky path. You test the first step gingerly, 
+but then decide to just go for it. At the halfway point you feel 
+one of the rocks begin to dislodge…",
+            [(hero.dex > 14 ? (pagea12) : (nil)), pagea13],
+            ["Jump forward (Dexterity >14)", "Hold on tight!"],
+            :pagea11
+        )
+
+        pagea10 = Page.new(
+            "
+You make it to the river’s edge and look behind you… Doesn’t 
+look like you were followed, but it’s probably best not to hang 
+around to find out. In front of you the path reaches the river's 
+edge and a small bridge spans it’s width. The water is running 
+faster than you would have expected this far inland, and it is 
+high enough that the questionable bridge has water running over 
+it center. There is a makeshift rocky path that also crosses 
+slightly downriver.",
+            [pagea15, (hero.dex > 12 ? (pagea6) : (nil)), (hero.wis > 11 ? (pagea6) : (nil))],
+            ["Take the bridge, it looks fine", "Try the rocky path (Dexterity >12)", "Inspect a nearby tree covered in vines (Wisdom >11)"],
+            :pagea10
         )
         pagea9 = Page.new(
             "
@@ -258,7 +440,7 @@ politely to them as you pass while they honk and run seemingly randomly
 around the town. You reach the path and begin your journey into the forest.
 Not long after starting out, the path forks in two, as all paths in adventures 
 seem to do. George didn’t mention this part.",
-            [pagea3, last_page],
+            [pagea3, pagea17],
             ["Go left", "Go right"],
             :pagea2
         )
