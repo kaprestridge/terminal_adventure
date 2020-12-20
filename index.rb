@@ -53,6 +53,21 @@ end
 welcome_screen(prompt)
 puts "What is your name?"
 hero_name = gets.chomp.to_s.capitalize
+if hero_name.size > 0 && hero_name.size < 10
+        hero_name_valid = true
+      else
+        hero_name_valid = false
+      end
+    
+    while hero_name_valid == false
+      puts "Sorry, please enter a name between 1 and 10 characters long"
+        hero_name = gets.chomp.to_s.capitalize
+        if hero_name.size > 0 && hero_name.size < 10
+            hero_name_valid = true
+          else
+            hero_name_valid = false
+          end
+    end
 hero = Hero.new(hero_name)
 system('clear')
 # puts "Welcome #{hero_name}"
@@ -159,6 +174,108 @@ unravel the mystery and complete the game"
             [" "],
             :last_page
         )
+        pagea10 = Page.new(
+            " ",
+            [0],
+            [" "],
+            :last_page
+        )
+        pagea9 = Page.new(
+            "
+You dart into the woods, hopefully the cover of the trees will protect you. 
+Unfortunately it also means you’ve lost sight of it. You head towards the 
+sound of water in the distance, slowly through the densely wooded area. 
+You suddenly feel a barrier in front of you… a web. 
+You try to turn the other way but it’s too late. The beast descends upon you…",
+            [last_page],
+            ["GAME OVER"],
+            :pagea9
+        )
+        pagea8 = Page.new(
+            "
+The second you see the beast you turn to run, you don’t want to wait and 
+see what happens next. You hear the sound of the spider scurrying 
+behind you, he won’t give up that easily. You look over your shoulder 
+just in time to see it jump at you, and you dodge quickly to the side, 
+watching the spider fly past you. It looks stunned, you keep running, 
+hoping it doesn’t recover in time to catch up.",
+            [pagea10],
+            ["Head to the river"],
+            :pagea8
+        )
+        pagea7 = Page.new(
+            "You turn quickly and run towards the sound of rushing water… 
+            hopefully the spider doesn’t follow you.",
+            [pagea10],
+            ["Head to the river"],
+            :pagea7
+        )
+        pagea6 = Page.new(
+            "
+    You hit the spider a second time with the branch, causing your makeshift 
+    weapon to snap in two. The spider seems to have stopped moving, but you don’t 
+    think you should stick around to find out.",
+            [pagea10],
+            ["Head to the river"],
+            :pagea6
+        )
+        pagea5 = Page.new(
+            "
+You grab a nearby dead branch and pull it from the tree, holding it 
+forward to defend yourself from the beast. It scuttles forward and launches 
+itself at you, fangs bared. You manage to hit it back, right on the creatures head. 
+It looks stunned, now is your chance!",
+            [(hero.str > 15 ? (pagea6) : (nil)), pagea7],
+            ["Hit it again (Strength >15)", "Run away!"],
+            :pagea5
+        )
+        pagea4 = Page.new(
+            "
+You feel a chill run up your spine as you hear a rustle behind you 
+and then a breeze touches your neck where the air was previously 
+unusually still. You turn slowly and find yourself facing a spider 
+the size of a large dog.",
+            [(hero.str > 13 ? (pagea5) : (nil)),(hero.dex > 13 ? (pagea8) : (nil)), pagea9],
+            ["Pick up a stick and try to push the beast back (Strength >13)", "Turn and try to outrun the beast (Dexterity > 13)", "Run into the trees to hide"],
+            :pagea4
+        )
+        pagea3 = Page.new(
+            "
+You take the path to the left and continue moving through the forest. 
+After a time the canopy becomes more dense and the path dims. You notice 
+the air becoming cool and damp, which isn’t unwelcome after walking for 
+over an hour. Up ahead you hear the sound of running water, the river 
+mustn’t be far now!",
+            [pagea4],
+            ["Continue on"],
+            :pagea3
+        )
+        pagea2 = Page.new(
+            "
+You head towards the path leading out of town to the north, 
+passing quite a few geese you now assume are the townsfolk. You nod 
+politely to them as you pass while they honk and run seemingly randomly 
+around the town. You reach the path and begin your journey into the forest.
+Not long after starting out, the path forks in two, as all paths in adventures 
+seem to do. George didn’t mention this part.",
+            [pagea3, last_page],
+            ["Go left", "Go right"],
+            :pagea2
+        )
+        pagea1 = Page.new(
+            "
+You decide to head to the root of the problem, who needs books? 
+George nods his small white head.
+‘Great idea, her tower is just on the other side of the river North of town, 
+head to the path and follow it until you see the tower in the clearing, it’s 
+hard to mi…. HONK’ His voice suddenly changes back to the frantic honking of 
+a goose. George must have realised his words no longer had meaning by your 
+expression and he sighed (or at least you think that’s what he did).
+             ",
+            [pagea2],
+            ["Head towards the tower"],
+            :pagea1
+        )
         page16 = Page.new(
             "
 ‘Now the way I see-s it, the most likely culprit for this predicament is 
@@ -168,7 +285,7 @@ never really liked her being there so would often try to drive her away.
 This seems like a prank she would enjoy… Otherwise we could try to find the 
 answer here in the books, it looks messy but I know there has to be a solution 
 in here somewhere’",
-            [last_page, last_page],
+            [pagea1, last_page],
             ["Let's go find Istval", "Find the solution in the library"],
             :page16
         )
