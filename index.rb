@@ -81,7 +81,7 @@ system('clear')
 question_list = [
     question1 = Hero_Questions.new(
         "What is your favorite colour?",
-        answer_options1 = {"Red" => proc { hero.change_str(1)}, "Blue" => proc { hero.change_dex(1)}, "Green" => proc { hero.change_cha(1)}, "Yellow" => proc { hero.change_wis(1)}, "Pink" => proc { hero.change_int(1)} }
+        answer_options1 = {"Red" => proc { hero.change_str(2)}, "Blue" => proc { hero.change_dex(2)}, "Green" => proc { hero.change_cha(2)}, "Yellow" => proc { hero.change_wis(2)}, "Pink" => proc { hero.change_int(2)} }
     ),
     question2 = Hero_Questions.new(
         "You come face-to-face with your worst enemy, how do you react?",
@@ -89,11 +89,11 @@ question_list = [
     ),
     question3 = Hero_Questions.new(
         "Are you a morning person?",
-        answer_options3 = {"Yes, the early bird gets the worm" => proc { hero.change_int(2)}, "I'm more of a night-owl" => proc { hero.change_wis(2 )}, "I never sleep" => proc { hero.change_str(2)}, "I just nap constantly" => proc { hero.change_wis(2)} }
+        answer_options3 = {"Yes, the early bird gets the worm" => proc { hero.change_int(2)}, "I'm more of a night-owl" => proc { hero.change_wis(2)}, "I never sleep" => proc { hero.change_str(2)}, "I just nap constantly" => proc { hero.change_wis(2)} }
     ),
     question4 = Hero_Questions.new(
         "Do you prefer cats or dogs?",
-        answer_options4 = {"I like them both equally" => proc { hero.change_wis(1)}, "Cats, of course" => proc { hero.change_dex(1)}, "Dogs are superior" => proc { hero.change_cha(1)}, "Both are useless" => proc {hero.change_str(1)}, "I prefer lizards" => proc {hero.change_int(2)} }
+        answer_options4 = {"I like them both equally" => proc { hero.change_wis(2)}, "Cats, of course" => proc { hero.change_dex(2)}, "Dogs are superior" => proc { hero.change_cha(2)}, "Both are useless" => proc {hero.change_str(2)}, "I prefer lizards" => proc {hero.change_int(2)} }
     ),
     question5 = Hero_Questions.new(
         "Do you like being the center of attention?",
@@ -101,15 +101,15 @@ question_list = [
     ),
     question6 = Hero_Questions.new(
         "What do you do to feel better when you’re sad?",
-        answer_options4 = {"Start a fight" => proc { hero.change_str(1)}, "Talk to a friend" => proc { hero.change_wis(1)}, "Listen to music" => proc { hero.change_cha(1)}, "Drink" => proc { hero.change_int(1)} }
+        answer_options4 = {"Start a fight" => proc { hero.change_str(2)}, "Talk to a friend" => proc { hero.change_wis(2)}, "Listen to music" => proc { hero.change_cha(2)}, "Drink" => proc { hero.change_int(2)} }
     ),
     question7 = Hero_Questions.new(
         "As a kid, what did you want to be when you grew up?",
-        answer_options4 = {"An actor" => proc { hero.change_cha(1)}, "A baker" => proc { hero.change_dex(1)}, "A scholar" => proc { hero.change_int(1)}, "A politician" => proc { hero.change_int(1)} }
+        answer_options4 = {"An actor" => proc { hero.change_cha(2)}, "A baker" => proc { hero.change_dex(2)}, "A scholar" => proc { hero.change_int(2)}, "A politician" => proc { hero.change_int(2)} }
     ),
     question8 = Hero_Questions.new(
         "Do you admit to mistakes when you make them?",
-        answer_options4 = {"I would but I never make mistakes" => proc { hero.change_str(1)}, "Always, it is the best way to learn" => proc { hero.change_wis(1)}, "Only if I'm forced to" => proc { hero.change_cha(1)} }
+        answer_options4 = {"I would but I never make mistakes" => proc { hero.change_str(2)}, "Always, it is the best way to learn" => proc { hero.change_wis(2)}, "Only if I'm forced to" => proc { hero.change_cha(2)} }
     ),
     
     ]
@@ -174,19 +174,280 @@ unravel the mystery and complete the game"
             [" "],
             :last_page
         )
-        last_page = Page.new(
-            " ",
-            [0],
-            [" "],
-            :last_page
+        pagea51 = Page.new(
+            "
+                                  ___
+                               ,-""   `.
+                             ,'  _   e )`-._     HONK
+                            /  ,' `-._<.===-'
+                           /  /
+                          /  ;
+              _          /   ;
+ (`._    _.-"" ""--..__,'    |
+ <_  `-""                     \
+  <`-                          :
+   (__   <__.                  ;
+     `-.   '-.__.      _.'    /
+        \      `-.__,-'    _,'
+         `._    ,    /__,-'
+            ""._\__,'< <____
+                 | |  `----.`.
+                 | |        \ `.
+                 ; |___      \-``
+                 \   --<
+                  `.`.<
+                    `-'",
+            [last_page],
+            ["The End".green],
+            :pagea51
+        )
+        pagea50 = Page.new(
+            "
+You hand George the remaining cure, happy that he can take it from here. 
+You really are running late, and should get back on the road. As you walk a
+way you hear the honks of geese intermingled with happy greeting from 
+townsfolk back in their normal forms, and one very angry woman scolding a little girl…",
+            [pagea51],
+            ["You saved the town! Congratulations!".green],
+            :pagea50
+        )
+        pagea49 = Page.new(
+            "You pocket the letter, not sure if handing it over to this young girl is a good idea…",
+            [pagea50],
+            ["Say Goodbye"],
+            :pagea49
+        )
+        pagea48 = Page.new(
+            "
+You walk over to the crying girl and hand her the letter. She wipes 
+her eyes clear and looks down at it. Pulling it open a handful of runes 
+flash to life. You don’t understand them but the girls eyes flash with a mischievous glee.",
+            [pagea50],
+            ["Say Goodbye"],
+            :pagea48
+        )
+        pagea47 = Page.new(
+            "
+‘Looks like we have a suspect’ says George at your side ‘What on earth is 
+going on here Tilly?’
+‘I just wanted my friends to be nice to me!’ She cried ‘They were saying 
+mean things and I wanted them to be kind, like the geese at the river!’
+George looked equal parts angry and amused.
+‘Well you’re lucky this traveller came along and helped, else you’d not 
+be happy in a few days without your Ma’ He said
+The girl began to cry ‘I just wanted it to work on my friends, not the whole town’
+George walked over and took the scrunched up paper from her small hands.
+‘That is what happens when people cast hex’s they know naught about’ He chided.",
+            [pagea48, pagea49],
+            ["Give the girl the letter", "Say goodbye and leave"],
+            :pagea47
+        )
+        pagea46 = Page.new(
+            "
+You head to the fountain, hoping the group from earlier are still 
+gathered there. The girl who is sitting on the water’s edge waves 
+a hand at you, happily surrounded by her goose friends.
+‘Hello! What are you doing back here?’ She asks cheerfully.
+Noticing you begin to try to feed the geese she suddenly yells ‘HEY, WHAT ARE YOU DOING!? STOP THAT!’",
+            [pagea47],
+            ["Continue"],
+            :pagea46
+        )
+        pagea45 = Page.new(
+            "
+George eats the dried riverweed, then closes his eyes tightly… 
+A bright light begins to emanate from him and after a few moments, 
+before you stands a disheveled gnome. He grins and jumps from leg 
+to leg, stretching as if testing that it really is himself again.
+‘Ahhhh’ He sighs ‘That’s better! I think if I had to waddle one more step I would have gone mad’
+‘Thank you so much, you have saved me and this entire town! Speaking of, let's go wrangle some geese!’",
+            [pagea46],
+            ["Wrangle some Geese!"],
+            :pagea45
+        )
+        pagea44 = Page.new(
+            "
+You head back to town, the trip much faster now that you know the safest path 
+and the hazards along the way. When you arrive back in town there is a goose 
+by the path, pacing backwards and forwards, leaving ink in its wake. George.",
+            [pagea45],
+            ["Give George the cure"],
+            :pagea44
+        )
+        pagea43 = Page.new(
+            "
+‘Ahhhh, here it is! Yes a very simple hex but powerful if done correctly. 
+Fortunately the cure is easily found. Just give the subject some of this 
+dried riverweed…’ She hands you a paper packet with a smile.
+‘There is a catch, of course, when you find whoever did this you give them this letter’ 
+She continues, handing you a purple envelope with a red seal.
+‘I will know if you fail to do so’ Her voice tells you she is not kidding, and so 
+you nod, turning to leave this place as quickly as possible.",
+            [pagea44],
+            ["Head back to town"],
+            :pagea40
+        )
+        pagea42 = Page.new(
+            "
+‘GEESE!!?!’ She chokes ‘How I wish that was my doing… but alas, 
+I did not think of something so devilishly clever. I’m sure I know 
+the spell you mean, I have the book here somewhere…’
+She seems to have almost forgotten your existence… You wait quietly 
+for her to finish searching.",
+            [pagea43],
+            ["Continue"],
+            :pagea42
+        )
+        pagea41 = Page.new(
+            "
+You turn and run, Istval’s laughter ringing out behind you. Why 
+did you ever decide to come on this ridiculous quest? Time to go 
+home and forget all about this place. You failed to save the town 
+but at least you saved yourself.",
+            [last_page],
+            ["The End".red],
+            :pagea41
+        )
+        pagea40 = Page.new(
+            "
+‘Well maybe you should have thought of that before BREAKING INTO MY HOME’ 
+She snarled, crossing her arms over her chest.",
+            [pagea42, pagea41],
+            ["Tell her about the Geese", "Run Away"],
+            :pagea40
+        )
+        pagea39 = Page.new(
+            "
+Her hand, outstretched towards you, turns to a fist, you feel your vision fading…",
+            [last_page],
+            ["GAME OVER".red],
+            :pagea30
+        )
+        pagea38 = Page.new(
+            "
+You manage to push the cauldren over, then throw yourself at the Fae, 
+swinging wildly. She laughs, then puts up a hand, freezing you mid-air.
+‘Give me one good reason not to kill you right now’ she snarls.",
+            [(hero.wis > 12 ? (pagea40) : (nil)), pagea39],
+            ["Give up and try to explain (Wisdom >12)", "Stay Silent"],
+            :pagea38
+        )
+        pagea37 = Page.new(
+            "
+‘HOW DARE YOU!!’ Comes a voice, mere seconds after the door creaks open.
+You feel yourself flung up against the wall, sliding to a heap on the floor.
+You manage to dive behind a nearby cauldron and take a moment to gather yourself.",
+            [pagea40, (hero.cha > 12 ? (pagea40) : (nil)), (hero.str > 11 ? (pagea38) : (nil))],
+            ["Shout that you mean no harm", "Tell her you seek her wisdom oh great Fae Istval (Charisma >12)", "Knock the cauldron over, and race to attack (Strength >11)"],
+            :pagea37
+        )
+        pagea36 = Page.new(
+            "
+Istval begins to laugh wildly…
+‘GEESE!!?!’ She chokes ‘How I wish that was my doing… but alas, I 
+did not think of something so devilishly clever. I’m sure I know 
+the spell you mean, I have the book here somewhere…’
+The vines suddenly drop you in a heap on the ground. Istval turns and walks back to the tower, still laughing.",
+            [pagea43],
+            ["Continue"],
+            :pagea36
+        )
+        pagea35 = Page.new(
+            "
+‘Well now, that just won’t do. I can’t just let pesky humans into 
+my home and garden. You have excellent timing though… Mildred here was getting hungry…’
+You try to kick free but it’s no use…",
+            [last_page],
+            ["GAME OVER".red],
+            :pagea35
+        )
+        pagea34 = Page.new(
+            "
+You are so focused on the door that you don’t notice the vines 
+creeping up and around your ankle until it is too late. You are 
+pulled up and into the air, then dangled over the open maw of a 
+carnivorous flower.
+‘Thank you pet’ Comes a voice from inside. Istval walks out of the tower, arms crossed.
+‘Now what are you doing here… human’ she almost spits the last word as if it is an insult.",
+            [(hero.cha > 11 ? (pagea36) : (nil)), (hero.int > 12 ? (pagea36) : (nil)), pagea35],
+            ["Try to explain (Charisma >11)", "Tell her you need her help (Intelligence > 12)", "Keep silent"],
+            :pagea34
+        )
+        pagea33 = Page.new(
+            "
+You decide to wait outside to scope out the tower first. Who knows 
+what you’re getting into. All you know about Istval is that she is 
+a Fae, and Fae are rarely able to be trusted. You find a spot amongst 
+the plants in the garden and watch the door.",
+            [pagea34],
+            ["Continue"],
+            :pagea333
+        )
+        pagea32 = Page.new(
+            "
+The base of the tower comes into view. A chaotic looking garden surrounds 
+it’s entrance, vines, flowers and fruits growing at every angle. You walk 
+carefully towards the single door, the only entrance to the tower. You 
+can hear movement inside, but you don’t think your presence has 
+been noticed yet.",
+            [(hero.dex > 13 ? (pagea37) : (nil)), (hero.str > 12 ? (pagea37) : (nil)), pagea33],
+            ["Sneak in (Dex >13)", "Kick the door down (Strength >12)", "Bide your time and wait outside"],
+            :pagea32
+        )
+        pagea31 = Page.new(
+            "
+You manage to get around the beast and back on track. 
+You can see the tower getting closer, not long now!",
+            [pagea32],
+            ["Continue"],
+            :pagea31
+        )
+        pagea30 = Page.new(
+            "
+You bolt through the trees back the way you came, and hear a yell 
+of grotesque joy from behind you. Unfortunately the speed of a human is 
+nothing compared to the size and strength of an Ogre…",
+            [last_page],
+            ["GAME OVER".red],
+            :pagea30
+        )
+        pagea29 = Page.new(
+            " 
+Crack! A branch snaps beneath your foot. Of course it does",
+            [(hero.cha > 11 ? (pagea31) : (nil)), pagea30],
+            ["Make a bird noise to disguise yourself (Charisma >11)", "RUN!!"],
+            :pagea29
+        )
+        pagea28 = Page.new(
+            "
+As you begin your walk up the slope, you hear a deep rumbling laugh. 
+That can’t be good… In the clearing ahead you make out the shape of a 
+large humanoid… an Ogre. There is no mistaking that smell. Around the 
+mouth of the cave is littered with bones, some belonging to animals, 
+others… something else. To one side suspended from a tree is a cage with the 
+nameplate ‘Nick’, it’s occupant long perished. Best to avoid this place.",
+            [(hero.dex > 12 ? (pagea31) : (nil)), pagea29],
+            ["Sneak past (Dexterity >12)", "Turn back, there must be another way"],
+            :pagea28
+        )
+        pagea27 = Page.new(
+            "
+You wake up on the shore… somewhere downriver of where you started. 
+You have no clue how much time has passed but you’d better not spend 
+any longer here. In the distance you can still make out the tower, 
+though it is considerably further away now. Ah well, at least you’re 
+on the correct side of the river now!",
+            [pagea28],
+            ["Continue"],
+            :pagea27
         )
         pagea26 = Page.new(
             "
-You jump into the rover without a care, I’m sure it will be fine. 
+You jump into the river without a care, I’m sure it will be fine. 
 You wade to around the halfway point, when the water becomes too 
 deep and you have to swim. You push yourself up… and are immediately 
 swept up and down river….",
-            [last_page],
+            [pagea27],
             ["Continue"],
             :pagea26
         )
@@ -195,7 +456,7 @@ swept up and down river….",
 You grab a hold of the edge of the bridge, and use it to drag yourself 
 to the shore. You wring out your clothing the best you can, then begin 
 to trudge up the path to the tower.",
-            [last_page],
+            [pagea32],
             ["Continue"],
             :pagea25
         )
@@ -205,7 +466,7 @@ You step carefully across the bridge, testing your weight
 on each step as you continue across. When you are just a few 
 steps away, the bridge cracks and splinters beneath you, 
 pulling your feet out from under you and throwing you into the water.",
-            [(hero.dex > 11 ? (pagea25) : (nil)), last_page],
+            [(hero.dex > 11 ? (pagea25) : (nil)), pagea27],
             ["Grab hold of the bridge (Dexterity >11)", "Let go"],
             :pagea24
         )
@@ -224,7 +485,7 @@ You jump back in the water, confident in your swimming ability.
 The river is flowing quickly, but you manage to fight it’s current 
 and make it to the other side. You wring out your clothing the best 
 you can, then begin to trudge up the path to the tower.",
-            [last_page],
+            [pagea32],
             ["Continue"],
             :pagea22
         )
@@ -268,7 +529,7 @@ going to take forever to clean. The spores continue to rise as you
 take another step forward… That’s funny, they smell like… actual 
 mustard. You giggle, then feel your vision begin to fade….",
             [last_page],
-            ["GAME OVER"],
+            ["GAME OVER".red],
             :pagea18
         )
         pagea17 = Page.new(
@@ -291,7 +552,7 @@ off as best as you can, but it looks like you’ll just be walking in
 damp clothes from here on. You sigh, wondering if these geese are worth it. 
 Looking ahead and noticing the very tip of a grey stone tower in 
 the distance! At last!",
-            [last_page],
+            [pagea32],
             ["Continue towards the tower"],
             :pagea16
         )
@@ -302,7 +563,7 @@ You walk carefully, testing each step before shifting your weight.
 It seems to be holding. You get most of the way across, your 
 confidence growing, before your foot slips, throwing you into 
 the icy river.",
-            [last_page],
+            [pagea27],
             ["Continue"],
             :pagea15
         )
@@ -324,7 +585,7 @@ the rope holds fast and you are able to drag yourself to the river bank.",
 You hold on as tightly as you can to try and regain your footing, 
 but the rock shudders under the force of the water and begins to 
 dislodge, throwing you into the cold water below.",
-            [last_page],
+            [pagea27],
             ["Continue"],
             :pagea13
         )
@@ -343,8 +604,8 @@ You decide you trust your feet more than that bridge and head
 downstream to the rocky path. You test the first step gingerly, 
 but then decide to just go for it. At the halfway point you feel 
 one of the rocks begin to dislodge…",
-            [(hero.dex > 14 ? (pagea12) : (nil)), pagea13],
-            ["Jump forward (Dexterity >14)", "Hold on tight!"],
+            [(hero.dex > 12 ? (pagea12) : (nil)), pagea13],
+            ["Jump forward (Dexterity >12)", "Hold on tight!"],
             :pagea11
         )
 
@@ -358,8 +619,8 @@ faster than you would have expected this far inland, and it is
 high enough that the questionable bridge has water running over 
 it center. There is a makeshift rocky path that also crosses 
 slightly downriver.",
-            [pagea15, (hero.dex > 12 ? (pagea6) : (nil)), (hero.wis > 11 ? (pagea6) : (nil))],
-            ["Take the bridge, it looks fine", "Try the rocky path (Dexterity >12)", "Inspect a nearby tree covered in vines (Wisdom >11)"],
+            [pagea15, (hero.dex > 11 ? (pagea11) : (nil)), (hero.wis > 11 ? (pagea14) : (nil))],
+            ["Take the bridge, it looks fine", "Try the rocky path (Dexterity >11)", "Inspect a nearby tree covered in vines (Wisdom >11)"],
             :pagea10
         )
         pagea9 = Page.new(
@@ -370,7 +631,7 @@ sound of water in the distance, slowly through the densely wooded area.
 You suddenly feel a barrier in front of you… a web. 
 You try to turn the other way but it’s too late. The beast descends upon you…",
             [last_page],
-            ["GAME OVER"],
+            ["GAME OVER".red],
             :pagea9
         )
         pagea8 = Page.new(
@@ -417,8 +678,8 @@ You feel a chill run up your spine as you hear a rustle behind you
 and then a breeze touches your neck where the air was previously 
 unusually still. You turn slowly and find yourself facing a spider 
 the size of a large dog.",
-            [(hero.str > 13 ? (pagea5) : (nil)),(hero.dex > 13 ? (pagea8) : (nil)), pagea9],
-            ["Pick up a stick and try to push the beast back (Strength >13)", "Turn and try to outrun the beast (Dexterity > 13)", "Run into the trees to hide"],
+            [(hero.str > 11 ? (pagea5) : (nil)),(hero.dex > 11 ? (pagea8) : (nil)), pagea9],
+            ["Pick up a stick and try to push the beast back (Strength >11)", "Turn and try to outrun the beast (Dexterity > 11)", "Run into the trees to hide"],
             :pagea4
         )
         pagea3 = Page.new(
@@ -458,6 +719,13 @@ expression and he sighed (or at least you think that’s what he did).
             ["Head towards the tower"],
             :pagea1
         )
+        pageb1 = Page.new(
+            "
+Sorry Traveller, This path is coming soon, for now let's go to Istval!".red,
+            [pagea1],
+            ["Go find Istval!"],
+            :pageb1
+        )
         page16 = Page.new(
             "
 ‘Now the way I see-s it, the most likely culprit for this predicament is 
@@ -467,7 +735,7 @@ never really liked her being there so would often try to drive her away.
 This seems like a prank she would enjoy… Otherwise we could try to find the 
 answer here in the books, it looks messy but I know there has to be a solution 
 in here somewhere’",
-            [pagea1, last_page],
+            [pagea1, pageb1],
             ["Let's go find Istval", "Find the solution in the library"],
             :page16
         )
@@ -560,7 +828,7 @@ You don’t have time to investigate the disappearance of a town’s population,
 you have places to be. You head down the road and don’t look back when you hear 
 honking in the distance.",
             [last_page],
-            ["THE END"],
+            ["THE END".red],
             :pageE9
         )
 
@@ -610,7 +878,7 @@ You don’t have time to investigate the disappearance of a town’s population,
 you have places to be. You head down the road and don’t look back when you hear 
 honking in the distance.",
             [last_page],
-            ["THE END"],
+            ["THE END".red],
             :page6
         )
 
@@ -682,7 +950,7 @@ bed and stretch, it’s time to go!",
             if new_page.to_s.include? 'page'
                 current_page = new_page
             else
-                puts "Try as you might, you are not skilled enough for that"
+                puts "Try as you might, you are not skilled enough for that choice"
                 gets
             end
         end
