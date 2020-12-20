@@ -1,24 +1,32 @@
 require "tty-prompt"
 prompt = TTY::Prompt.new
 require "colorize"
-require "json"
-require_relative "character_creator.rb"
+require_relative "hero.rb"
+require_relative "story.rb"
 
 
 def welcome_screen (prompt)
     system ('clear')
-    puts'
-     _______  _______  _______     _______. _______    ____    __    ____  ___      .______      
-    /  _____||   ____||   ____|   /       ||   ____|   \   \  /  \  /   / /   \     |   _  \     
-   |  |  __  |  |__   |  |__     |   (----`|  |__       \   \/    \/   / /  ^  \    |  |_)  |    
-   |  | |_ | |   __|  |   __|     \   \    |   __|       \            / /  /_\  \   |      /     
-   |  |__| | |  |____ |  |____.----)   |   |  |____       \    /\    / /  _____  \  |  |\  \----.
-    \______| |_______||_______|_______/    |_______|       \__/  \__/ /__/     \__\ | _| `._____|
-    
-    
-    '.cyan
+    puts"
 
-    puts 'Welcome to Geese, a text based adventure game right here in your terminal'
+     _______   ______     ______        _______. ___________    ____                  
+    /  _____| /  __  \\   /  __  \\      /       ||   ____\\   \\  /   /                  
+   |  |  __  |  |  |  | |  |  |  |    |   (----`|  |__   \\   \\/   /                   
+   |  | |_ | |  |  |  | |  |  |  |     \\   \\    |   __|   \\_    _/                    
+   |  |__| | |  `--'  | |  `--'  | .----)   |   |  |____    |  |                      
+    \\______|  \\______/   \\______/  |_______/    |_______|   |__|                      
+                                                                                      
+    .______    __    __       _______. __  .__   __.  _______     _______.     _______.
+    |   _  \\  |  |  |  |     /       ||  | |  \\ |  | |   ____|   /       |    /       |
+    |  |_)  | |  |  |  |    |   (----`|  | |   \\|  | |  |__     |   (----`   |   (----`
+    |   _  <  |  |  |  |     \\   \\    |  | |  . `  | |   __|     \\   \\        \\   \\    
+    |  |_)  | |  `--'  | .----)   |   |  | |  |\\   | |  |____.----)   |   .----)   |   
+    |______/   \\______/  |_______/    |__| |__| \\__| |_______|_______/    |_______/    
+                                                                                                                                                                       
+   
+    ".cyan
+
+    puts 'Welcome to Goosey Business, a text based adventure game right here in your terminal'
     
 
         menu_options = [
@@ -37,7 +45,15 @@ gets
 welcome_screen(prompt)
 elsif chosen_option == 3
     system('clear')
-    puts "This is the help screen"
+    puts "HELP".cyan
+    puts "Goosey Business is a text based RPG set in your terminal. You play as a hero
+who is travelling through a small village and finds something isn't quite right!
+It is written and programed by Kathryn Prestridge as part of her Coder Academy course.
+In order to complete the game there will be times where your skills will be tested,
+if your heros stats are lower than that of the required option you will be unable to proceed
+down that path. You will then need to select a different option. Test your skills and try to
+unravel the mystery and complete the game"
+    puts "For questions please contact me on twitter @katprestridge"
     puts 'press return to go back to the main menu'
     gets
     welcome_screen(prompt)
@@ -70,13 +86,6 @@ if hero_name.size > 0 && hero_name.size < 10
     end
 hero = Hero.new(hero_name)
 system('clear')
-# puts "Welcome #{hero_name}"
-# puts "
-# hero strength: #{hero.str}
-# hero dexterity: #{hero.dex}
-# hero constitution: #{hero.con}
-# hero intelligence: #{hero.int}
-# hero wisdom: #{hero.wis}"
 
 question_list = [
     question1 = Hero_Questions.new(
@@ -152,20 +161,6 @@ unravel the mystery and complete the game"
             puts "Press Return to begin your adventure"
             gets
 
-            
-        
-        class Page
-            attr_reader :story, :symbol ,:options, :option_text
-            def initialize(story, options, option_text, symbol)
-                @story = story
-                @options = options[0..]
-                @symbol = symbol
-                @option_text = option_text[0..]
-            end
-            def to_s
-                'page'
-            end
-        end
 
         
         last_page = Page.new(
