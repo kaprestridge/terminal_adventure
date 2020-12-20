@@ -67,23 +67,44 @@ end
 end
 
 welcome_screen(prompt)
+
 puts "What is your name?"
 hero_name = gets.chomp.to_s.capitalize
-if hero_name.size > 0 && hero_name.size < 10
-        hero_name_valid = true
-      else
-        hero_name_valid = false
-      end
+def check_name(hero_name)
+    if hero_name.size > 0 && hero_name.size < 10
+                hero_name_valid = true
+              else
+                hero_name_valid = false
+              end
+            
+            while hero_name_valid == false
+              puts "Sorry, please enter a name between 1 and 10 characters long"
+                hero_name = gets.chomp.to_s.capitalize
+                if hero_name.size > 0 && hero_name.size < 10
+                    hero_name_valid = true
+                  else
+                    hero_name_valid = false
+                  end
+            end
+end
+check_name(hero_name)
+# puts "What is your name?"
+# hero_name = gets.chomp.to_s.capitalize
+# if hero_name.size > 0 && hero_name.size < 10
+#         hero_name_valid = true
+#       else
+#         hero_name_valid = false
+#       end
     
-    while hero_name_valid == false
-      puts "Sorry, please enter a name between 1 and 10 characters long"
-        hero_name = gets.chomp.to_s.capitalize
-        if hero_name.size > 0 && hero_name.size < 10
-            hero_name_valid = true
-          else
-            hero_name_valid = false
-          end
-    end
+#     while hero_name_valid == false
+#       puts "Sorry, please enter a name between 1 and 10 characters long"
+#         hero_name = gets.chomp.to_s.capitalize
+#         if hero_name.size > 0 && hero_name.size < 10
+#             hero_name_valid = true
+#           else
+#             hero_name_valid = false
+#           end
+#     end
 hero = Hero.new(hero_name)
 system('clear')
 

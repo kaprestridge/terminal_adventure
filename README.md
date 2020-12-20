@@ -1,11 +1,6 @@
 # Terminal Adventure
 ##Goosey Business, T1A3
 
-<!-- Develop a statement of purpose and scope for your application. It must include:
-- describe at a high level what the application will do
-- identify the problem it will solve and explain why you are developing it
-- identify the target audience
-- explain how a member of the target audience will use it -->
 
 ## Statement of Purpose
 This application is a text-based adventure in the style of classic games such as Colossal Cave Adventure. It is run within the terminal. The user will be able to create and change their character before they begin, and this will impact how the story plays out.
@@ -14,13 +9,6 @@ The target audience is Coder Academy instructors and peers, as well as potential
 The user will download the code from github and install gems via bundler. They will then be able to run the application in their terminal.
 
 
-<!-- Develop a list of features that will be included in the application. It must include:
-- at least THREE features
-- describe each feature
-Note: Ensure that your features above allow you to demonstrate your understanding of the following language elements and concepts:
-- use of variables and the concept of variable scope
-- loops and conditional control structures
-- error handling -->
 ## MVP Features
 - A character creator section: This will enable the user to customise their experience through the story by giving their character a name and setting their stats based on answers to a personality quiz. This will also encourage replays through the different paths available.
 - Help menu: A menu outlining how the game works and how to use the application
@@ -51,13 +39,6 @@ Trello board:
 
 ![alt text](docs/trello_board.png "Initial trello board")
 
-
-<!-- Design help documentation which includes a set of instructions which accurately describe how to use and install the application.
-
-You must include:
-- steps to install the application
-- any dependencies required by the application to operate
-- any system/hardware requirements -->
 
 ## How to run Goosey Business
 ### Requirements
